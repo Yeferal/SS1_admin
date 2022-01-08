@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,6 +12,7 @@ import { HomeComponent } from './components/home/home.component';
 
 //INIT SERVICES
 import { LoadScriptsService } from './services/load-scripts.service';
+import { ForgotPassComponent } from './components/forgot-pass/forgot-pass.component';
 //END SERVICES
 
 @NgModule({
@@ -16,10 +20,15 @@ import { LoadScriptsService } from './services/load-scripts.service';
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    HomeComponent
+    HomeComponent,
+    ForgotPassComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    CommonModule, 
     AppRoutingModule
   ],
   providers: [
