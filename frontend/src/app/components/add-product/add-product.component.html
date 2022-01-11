@@ -1,0 +1,162 @@
+
+
+<!-- Page Wrapper -->
+<div id="wrapper">
+
+    <app-navbar></app-navbar>
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+        <!-- Main Content -->
+        <div id="content">
+
+            <app-topbar></app-topbar>
+
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <!-- Page Heading -->
+                <div class="d-sm-flex align-items-center">
+                    <h1 class="h3 mb-4 text-gray-800">Add New Product</h1>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-lg-12">
+
+                        <!-- Basic Card Example -->
+                        <div class="card shadow mb-4">
+                            <!-- <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">Basic Card Example</h6>
+                            </div> -->
+                            <form class="user" [formGroup]="productForm" (submit)="addProduct()">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <div class="card shadow mb-4">
+                                            <div class="card-body">
+                                                <div  class="align-items-center justify-content-between mb-4" style="height: 350px; width: 100%; background: transparent; ">
+                                                    <!-- src="../../../assets/img/undraw_photos_re_pvh3.svg" -->
+                                                    <img *ngIf="preview" [src]="preview" alt="" 
+                                                    style=" min-height: 100%;
+                                                            min-width: 100%; max-height: 100%;
+                                                    max-width: 100%; border-radius: 20%; box-shadow: 0 0 5px rgb(124, 122, 122);">
+                                                    <img *ngIf="!preview" src="../../../assets/img/undraw_photos_re_pvh3.svg" alt="" 
+                                                    style=" min-height: 100%;
+                                                            min-width: 100%; max-height: 100%;
+                                                    max-width: 100%; border-radius: 20%; box-shadow: 0 0 5px rgb(124, 122, 122);">
+                                                    <input type="file" 
+                                                    (change)="captureFile($event)" 
+                                                    class="btn btn-success btn-circle" style="margin-left: 45%; margin-top: -7%;" hidden id="validatedCustomFile" accept="image/png, image/jpeg" required>
+                                                    <label for="validatedCustomFile" class="btn btn-success btn-circle"  style="margin-left: 45%; margin-top: -7%;"><i class="fas fa-plus"></i></label>
+                                                    <!-- <label class="custom-file-label" for="validatedCustomFile">Choose file...</label> -->
+                                                    <!-- <i class="custom-file-label fas fa-plus" for="validatedCustomFile"></i> -->
+                                                    <!-- <button class="btn btn-success btn-circle" style="margin-left: 45%; margin-top: -7%;">
+                                                        <i class="fas fa-plus"></i></button> -->
+                                                </div>
+                                                
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <div class="card shadow mb-4">
+                                            <div class="card-body">
+                                                <div class="p-5">
+                                                    <div class="text-center">
+                                                        <h1 class="h4 text-gray-900 mb-4">Create a Product!</h1>
+                                                    </div>
+                                                    <!-- <form class="user"> -->
+                                                        <div class="form-group row">
+                                                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                                                <input type="text" 
+                                                                
+                                                                formControlName="nombre" class="form-control form-control-user" id="exampleFirstName"
+                                                                    placeholder="Name" [required]="true">
+                                                            </div>
+                                                            <div class="col-sm-6">
+                                                                <input type="number" 
+                                                                
+                                                                formControlName="precio_unitario" 
+                                                                class="form-control form-control-user" id="exampleLastName"
+                                                                    placeholder="Unit Price" [required]="true" min="0" step=".01">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                                                <!-- <input type="text" class="form-control form-control-user" id="exampleFirstName"
+                                                                    placeholder="Name" [required]="true"> -->
+                                                                <select 
+                                                                formControlName="estado" 
+                                                                class="form-control" style="height: 52px; border-radius: 30px; padding-left: 18px; font-size: 13px;">
+                                                                    <option value="Disponible" selected>Disponible</option>
+                                                                    <option value="Fuera de Temporada">Fuera de Temporada</option>
+                                                                    <option value="Agotado">Agotado</option>
+                                                                    <!-- <option value="value4"></option> -->
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <!-- <input type="number" class="form-control form-control-user" id="exampleInputEmail"
+                                                                placeholder="Email Address" [required]="true"> -->
+                                                                <textarea formControlName="descripcion" class="form-control form-control-user" placeholder="Description..." style="resize: none; border-radius: 10px;" rows="5"></textarea>
+                                                        </div>
+                                                        <input type="submit"  class="btn btn-primary btn-user btn-block" value="Add">
+                                                    <!-- </form> -->
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        </div>
+
+                        
+                    </div>
+                </div>
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <footer class="sticky-footer bg-white">
+            <div class="container my-auto">
+                <div class="copyright text-center my-auto">
+                    <span>Copyright &copy; Your Website 2020</span>
+                </div>
+            </div>
+        </footer>
+        <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+</div>
+<!-- End of Page Wrapper -->
+
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
+
+<ng-template #modalc let-c="close" let-d="dismiss">
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Info!!!</h4>
+      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <!-- <p>{{message}}</p>    -->
+      <p>Se agrego Correctamente el Producto</p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="c('dd')">Save</button>
+    </div>
+</ng-template>

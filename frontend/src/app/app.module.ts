@@ -13,6 +13,18 @@ import { HomeComponent } from './components/home/home.component';
 //INIT SERVICES
 import { LoadScriptsService } from './services/load-scripts.service';
 import { ForgotPassComponent } from './components/forgot-pass/forgot-pass.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { TopbarComponent } from './components/topbar/topbar.component';
+import { ListProductsComponent } from './components/list-products/list-products.component';
+import { ListOrdersComponent } from './components/list-orders/list-orders.component';
+import { ListUsersComponent } from './components/list-users/list-users.component';
+import { ChartsComponent } from './components/charts/charts.component';
+import { LogsComponent } from './components/logs/logs.component';
+import { TableListProductsComponent } from './components/list-products/table-list-products/table-list-products.component';
+import { AddProductComponent } from './components/add-product/add-product.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ModalBaseComponent } from './components/tools/modal-base/modal-base.component';
+import { EditProductComponent } from './components/edit-product/edit-product.component';
 //END SERVICES
 
 @NgModule({
@@ -21,7 +33,18 @@ import { ForgotPassComponent } from './components/forgot-pass/forgot-pass.compon
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    ForgotPassComponent
+    ForgotPassComponent,
+    NavbarComponent,
+    TopbarComponent,
+    ListProductsComponent,
+    ListOrdersComponent,
+    ListUsersComponent,
+    ChartsComponent,
+    LogsComponent,
+    TableListProductsComponent,
+    AddProductComponent,
+    ModalBaseComponent,
+    EditProductComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,7 +52,7 @@ import { ForgotPassComponent } from './components/forgot-pass/forgot-pass.compon
     ReactiveFormsModule,
     HttpClientModule,
     CommonModule, 
-    AppRoutingModule
+    AppRoutingModule, NgbModule
   ],
   providers: [
     LoadScriptsService

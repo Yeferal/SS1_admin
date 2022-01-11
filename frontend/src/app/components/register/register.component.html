@@ -13,41 +13,97 @@
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
                             </div>
-                            <form class="user">
+                            <form class="user" [formGroup]="signUpForm" (ngSubmit)="signUp(signUpForm)">
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" id="exampleFirstName"
-                                            placeholder="First Name">
+                                        <input 
+                                        [class.inp-invalid]="signUpForm.get('nombres')?.errors && signUpForm.get('nombres')?.touched" 
+                                        [class.inp-valid]="!signUpForm.get('nombres')?.errors && signUpForm.get('nombres')?.touched"  
+                                        formControlName="nombres" 
+                                        type="text" class="form-control form-control-user" id="exampleFirstName"
+                                            placeholder="First Name" [required]="true">
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control form-control-user" id="exampleLastName"
-                                            placeholder="Last Name">
+                                        <input type="text" 
+                                        [class.inp-invalid]="signUpForm.get('apellidos')?.errors && signUpForm.get('apellidos')?.touched" 
+                                        [class.inp-valid]="!signUpForm.get('apellidos')?.errors && signUpForm.get('apellidos')?.touched"
+                                        formControlName="apellidos" class="form-control form-control-user" id="exampleLastName"
+                                            placeholder="Last Name" [required]="true">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="text" 
+                                        [class.inp-invalid]="signUpForm.get('user')?.errors && signUpForm.get('user')?.touched" 
+                                        [class.inp-valid]="!signUpForm.get('user')?.errors && signUpForm.get('user')?.touched" 
+                                        formControlName="user" class="form-control form-control-user" id="exampleFirstName"
+                                            placeholder="UserName" [required]="true">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="text" 
+                                        [class.inp-invalid]="signUpForm.get('id_cuenta')?.errors && signUpForm.get('id_cuenta')?.touched" 
+                                        [class.inp-valid]="!signUpForm.get('id_cuenta')?.errors && signUpForm.get('id_cuenta')?.touched" 
+                                        formControlName="id_cuenta" class="form-control form-control-user" id="exampleLastName"
+                                            placeholder="DPI" [required]="true">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control form-control-user" id="exampleInputEmail"
-                                        placeholder="Email Address">
+                                    <input type="email" 
+                                    [class.inp-invalid]="signUpForm.get('correo')?.errors && signUpForm.get('correo')?.touched" 
+                                    [class.inp-valid]="!signUpForm.get('correo')?.errors && signUpForm.get('correo')?.touched" 
+                                    formControlName="correo" class="form-control form-control-user" id="exampleInputEmail"
+                                        placeholder="Email Address" [required]="true">
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="password" class="form-control form-control-user"
-                                            id="exampleInputPassword" placeholder="Password">
+                                        <input type="password" 
+                                        [class.inp-invalid]="signUpForm.get('password1')?.errors && signUpForm.get('password1')?.touched" 
+                                        [class.inp-valid]="!signUpForm.get('password1')?.errors && signUpForm.get('password1')?.touched" 
+                                        formControlName="password1" class="form-control form-control-user"
+                                            id="exampleInputPassword" placeholder="Password" [required]="true">
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="password" class="form-control form-control-user"
-                                            id="exampleRepeatPassword" placeholder="Repeat Password">
+                                        <input type="password" 
+                                        [class.inp-invalid]="signUpForm.get('password2')?.errors && signUpForm.get('password2')?.touched" 
+                                        [class.inp-valid]="!signUpForm.get('password2')?.errors && signUpForm.get('password2')?.touched" 
+                                        formControlName="password2" class="form-control form-control-user"
+                                            id="exampleRepeatPassword" placeholder="Repeat Password" [required]="true">
                                     </div>
                                 </div>
-                                <a href="login.html" class="btn btn-primary btn-user btn-block">
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="text" 
+                                        [class.inp-invalid]="signUpForm.get('telefono')?.errors && signUpForm.get('telefono')?.touched" 
+                                        [class.inp-valid]="!signUpForm.get('telefono')?.errors && signUpForm.get('telefono')?.touched" 
+                                        formControlName="telefono" class="form-control form-control-user" id="exampleFirstName"
+                                            placeholder="Phone" [required]="true">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="date" 
+                                        [class.inp-invalid]="signUpForm.get('fecha_nacimiento')?.errors && signUpForm.get('fecha_nacimiento')?.touched" 
+                                        [class.inp-valid]="!signUpForm.get('fecha_nacimiento')?.errors && signUpForm.get('fecha_nacimiento')?.touched" 
+                                        formControlName="fecha_nacimiento" class="form-control form-control-user" id="exampleLastName"
+                                            placeholder="Date of Birth" [required]="true">
+                                    </div>
+                                </div>
+                                <div class="form-group ">
+                                    <div class="custom-control custom-checkbox small">
+                                        <input formControlName="master" type="checkbox" class="custom-control-input" id="customCheck">
+                                        <label class="custom-control-label" for="customCheck">Is Master</label>
+                                    </div>
+                                </div>
+                                <!-- <a href="login.html" class="btn btn-primary btn-user btn-block">
                                     Register Account
-                                </a>
-                                <hr>
+                                </a> -->
+                                <input class="btn btn-primary btn-user btn-block" type="submit" value="Register Account">
+                                <!-- <button class="btn btn-primary btn-user btn-block">Register Account</button> -->
+                                <!-- <hr>
                                 <a  class="btn btn-google btn-user btn-block">
-                                    <!-- <i class="fab fa-google fa-fw"></i> Register with Google -->
+                                    <i class="fab fa-google fa-fw"></i> Register with Google
                                 </a>
                                 <a  class="btn btn-facebook btn-user btn-block">
-                                    <!-- <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook -->
-                                </a>
+                                    <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
+                                </a> -->
                             </form>
                             <hr>
                             <div class="text-center">

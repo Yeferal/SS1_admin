@@ -17,6 +17,9 @@ export class AppComponent {
     '../../../assets/vendor/chart.js/Chart.min.js',
     '../../../assets/js/demo/chart-area-demo.js',
     '../../../assets/js/demo/chart-pie-demo.js',
+    '../../../assets/vendor/datatables/jquery.dataTables.min.js',
+    '../../../assets/vendor/datatables/dataTables.bootstrap4.min.js',
+    '../../../assets/js/demo/datatables-demo.js',
   ];
 
   filesLinks = [
