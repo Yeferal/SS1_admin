@@ -1,0 +1,190 @@
+
+<!-- Page Wrapper -->
+<div id="wrapper">
+
+    <app-navbar></app-navbar>
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+        <!-- Main Content -->
+        <div id="content">
+
+            <app-topbar></app-topbar>
+
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <!-- Page Heading -->
+                <div class="d-sm-flex align-items-center">
+                    <h1 class="h3 mb-4 text-gray-800">Edit Product</h1>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-lg-12">
+
+                        <!-- Basic Card Example -->
+                        <div class="card shadow mb-4">
+                            <!-- <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">Basic Card Example</h6>
+                            </div> -->
+                            
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <div class="card shadow mb-4">
+                                            <div class="card-body">
+                                                <h1>Order</h1>
+                                                <label><b>#Order: </b><span>{{order.id_orden}}</span></label>
+                                                <br>
+                                                <label><b>Fecha: </b><span>{{order.fecha}}</span></label>
+                                                <br>
+                                                <label><b>Direccion: </b><span>{{order.direccion}}</span></label>
+                                                <br>
+                                                <label><b>#Tarjeta: </b><span>{{order.no_tarjeta}}</span></label>
+                                                <br>
+                                                <label><b>Estado: </b><span>{{order.estado}}</span></label>
+                                                <br>
+                                                <label><b>Entregado: </b><span *ngIf="order.entregado">Entregado</span><span *ngIf="!order.entregado">Sin Entregar</span></label>
+                                                <!-- <br>
+                                                <label><b># Order: </b><span>{{order}}</span></label> -->
+                                                <div class="card shadow mb-4">
+                                                    <div class="card-body">
+                                                        <div class="row">
+                                                            <div class="col-lg-10">
+                                                                <h2>Usuario</h2>
+                                                                <label><b>DPI: </b><span>{{order.User?.id_cuenta}}</span></label>
+                                                                <br>
+                                                                <label><b>Nombres: </b><span>{{order.User?.nombres}}</span></label>
+                                                                <br>
+                                                                <label><b>Apellidos: </b><span>{{order.User?.apellidos}}</span></label>
+                                                                <br>
+                                                                <label><b>Telefono: </b><span>{{order.User?.telefono}}</span></label>
+                                                                <br>
+                                                                <label><b>Correo: </b><span>{{order.User?.correo}}</span></label>
+                                                            </div>
+                                                            
+                                                        </div>
+                                                    </div>
+                                                </div> 
+                                                <div *ngIf="order.estado =='En Revision'">
+                                                    <a (click)="procedOrder()" class="btn btn-info btn-icon-split">
+                                                        <span class="icon text-white-50">
+                                                            <i class="fas fa-check"></i>
+                                                        </span>
+                                                        <span class="text">Procesar</span>
+                                                    </a>
+                                                    <span style="margin-right: 5px;"></span>  
+                                                    <a (click)="deleteOrder()" class="btn btn-danger btn-icon-split">
+                                                        <span class="icon text-white-50">
+                                                            <i class="fas fa-trash"></i>
+                                                        </span>
+                                                        <span class="text">Delete</span>
+                                                    </a>  
+                                                </div>                                           
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <div class="card shadow mb-4">
+                                            <div class="card-body">
+                                                <div class="p-5">
+                                                    <div class="text-center">
+                                                        <h1 class="h4 text-gray-900 mb-4">Detail Order #{{order.id_orden}}</h1>
+                                                    </div>
+                                                    <!-- <app-table-details-order></app-table-details-order> -->
+                                                    
+                                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>No. </th>
+                                                                <th>ID Producto</th>
+                                                                <th>Nombre</th>
+                                                                <th>Precio Unitario</th>
+                                                                <th>Cantidad</th>
+                                                                <th>Subtotal</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tfoot>
+                                                            <tr>
+                                                                <th> </th>
+                                                                <th> </th>
+                                                                <th> </th>
+                                                                <th>Total: </th>
+                                                                <th>{{order.total}}</th>
+                                                            </tr>
+                                                        </tfoot>
+                                                        <tbody>
+                                                            <tr *ngFor="let orderL of order.ListOrders; let i = index">
+                                                                <td>{{i+1}}</td>
+                                                                <td>{{orderL.id_producto}}</td>
+                                                                <td>{{orderL.Product?.nombre}}</td>
+                                                                <td>{{orderL.precio_unitario}}</td>
+                                                                <td>{{orderL.cantidad}}</td>
+                                                                <td>{{orderL.sub_total}}</td>
+                                                                <!-- <td>{{orderL.estado}}</td> -->
+                                                                <!-- <td> -->
+                                                                    <!-- <button>Delete</button> -->
+                                                                    <!-- <button>Edit</button> -->
+                                                                    <!-- <a [routerLink]="['/list-orders/details-order',order.id_orden]" class="btn btn-info btn-icon-split">
+                                                                        <span class="icon text-white-50">
+                                                                            <i class="fas fa-info-circle"></i>
+                                                                        </span>
+                                                                        <span class="text">Details</span>
+                                                                    </a>
+                                                                    <span style="margin-right: 5px;"></span> -->
+                                                                    <!-- <button>Delete</button> -->
+                                                                    <!-- <a class="btn btn-danger btn-icon-split">
+                                                                        <span class="icon text-white-50">
+                                                                            <i class="fas fa-trash"></i>
+                                                                        </span>
+                                                                        <span class="text">Delete</span>
+                                                                    </a>
+                                                                </td> -->
+                                                                <!-- <td>{{}}</td> -->
+                                                                <!-- <td>$320,800</td> -->
+                                                            <!-- </tr> -->
+                                                        </tbody>
+                                                    </table>
+                                                    
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                        </div>
+
+                        
+                    </div>
+                </div>
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <footer class="sticky-footer bg-white">
+            <div class="container my-auto">
+                <div class="copyright text-center my-auto">
+                    <span>Copyright &copy; Your Website 2020</span>
+                </div>
+            </div>
+        </footer>
+        <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+</div>
+<!-- End of Page Wrapper -->
+
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>

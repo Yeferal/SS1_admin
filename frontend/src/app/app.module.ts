@@ -25,6 +25,13 @@ import { AddProductComponent } from './components/add-product/add-product.compon
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ModalBaseComponent } from './components/tools/modal-base/modal-base.component';
 import { EditProductComponent } from './components/edit-product/edit-product.component';
+import { TableListOrdersComponent } from './components/list-orders/table-list-orders/table-list-orders.component';
+import { DetailsOrderComponent } from './components/details-order/details-order.component';
+import { TableDetailsOrderComponent } from './components/details-order/table-details-order/table-details-order.component';
+import { SalesComponent } from './components/reports/sales/sales.component';
+import { BillsComponent } from './components/reports/bills/bills.component';
+import { UserReportComponent } from './components/reports/user-report/user-report.component';
+import { OrderReportComponent } from './components/reports/order-report/order-report.component';
 //END SERVICES
 
 @NgModule({
@@ -45,6 +52,13 @@ import { EditProductComponent } from './components/edit-product/edit-product.com
     AddProductComponent,
     ModalBaseComponent,
     EditProductComponent,
+    TableListOrdersComponent,
+    DetailsOrderComponent,
+    TableDetailsOrderComponent,
+    SalesComponent,
+    BillsComponent,
+    UserReportComponent,
+    OrderReportComponent,
   ],
   imports: [
     BrowserModule,

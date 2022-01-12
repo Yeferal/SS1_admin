@@ -16,8 +16,27 @@
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
+                <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                    <h1 class="h3 mb-0 text-gray-800">List Orders</h1>
+                    <button routerLink="/list-products/add-product" class="btn btn-primary btn-icon-split">
+                        <span class="icon text-white-50">
+                            <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                        </span>
+                        <span class="text">Add Product</span>
+                    </button>
+                </div>
 
+                <!-- DataTales Example -->
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <app-table-list-orders></app-table-list-orders>
+                        </div>
+                    </div>
+                </div>
             </div>
             <!-- /.container-fluid -->
 
