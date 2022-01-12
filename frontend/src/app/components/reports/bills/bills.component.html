@@ -33,47 +33,58 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
+                            <div class="form-group row">
+                                <form [formGroup]="formDate">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    
+                                    <input formControlName="fecha" type="date" class="form-control">
+                                </div>
+                                <div class="col-sm-6">
+                                    <a (click)="searchData()" class="btn btn-success btn-circle btn-sm">
+                                        <i class="fas fa-search"></i>
+                                    </a>
+                                </div>
+                                </form>
+                            </div>
+                            <div class="col-sm-6">
+                                
+                                
+                            </div>
 
 
 
 
 
-
-                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <table class="table table-bordered table-stripe table-compact" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
-                                        <th>ID</th>
+                                        <th>#</th>
+                                        <th>No. Factura</th>
+                                        <th>Cuenta</th>
                                         <th>Usuario</th>
-                                        <th>Direccion</th>
-                                        <th>Date</th>
-                                        <th>No. card</th>
+                                        <th>Fecha</th>
                                         <th>Total</th>
-                                        <th>State</th>
-                                        <th>Options</th>
                                     </tr>
                                 </thead>
                                 <tfoot>
                                     <tr>
-                                        <th>ID</th>
-                                        <th>Usuario</th>
-                                        <th>Direccion</th>
-                                        <th>Date</th>
-                                        <th>No. card</th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
                                         <th>Total</th>
-                                        <th>State</th>
-                                        <th>Options</th>
+                                        <th>{{total}}</th>
                                     </tr>
                                 </tfoot>
                                 <tbody>
-                                    <!-- <tr *ngFor="let order of listOrders; let i = index">
-                                        <td>{{order.id_orden}}</td>
-                                        <td><a style="color: black;">{{order.User?.nombres}} {{order.User?.apellidos}}</a></td>
-                                        <td>{{order.direccion}}</td>
-                                        <td>{{order.fecha}}</td>
-                                        <td>{{order.no_tarjeta}}</td>
-                                        <td>{{order.total}}</td>
-                                        <td>{{order.estado}}</td>
-                                        <td> -->
+                                    <tr *ngFor="let bill of listBills; let i = index">
+                                        <td>{{i+1}}</td>
+                                        <td>{{bill.no_factura}}</td>
+                                        <td>{{bill.cuenta_efectiva}}</td>
+                                        <td>{{bill.User?.nombres}} {{bill.User?.apellidos}}</td>
+                                        <td>{{bill.fecha}}</td>
+                                        <td>{{bill.total}}</td>
+                                    </tr>
                                 </tbody>
                             </table>
                             <!-- <app-table-list-products></app-table-list-products> -->

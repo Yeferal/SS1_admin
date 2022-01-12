@@ -33,47 +33,70 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
+                            <div class="form-group row">
+                                <form [formGroup]="formDate">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    
+                                    <input formControlName="fecha" type="date" class="form-control">
+                                </div>
+                                <div class="col-sm-6">
+                                    <a (click)="searchData()" class="btn btn-success btn-circle btn-sm">
+                                        <i class="fas fa-search"></i>
+                                    </a>
+                                </div>
+                                </form>
+                            </div>
+                            <div class="col-sm-6">
+                                
+                                
+                            </div>
 
 
 
 
 
-
-                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <table class="table table-bordered table-stripe table-compact" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
-                                        <th>ID</th>
-                                        <th>Usuario</th>
-                                        <th>Direccion</th>
-                                        <th>Date</th>
-                                        <th>No. card</th>
-                                        <th>Total</th>
-                                        <th>State</th>
-                                        <th>Options</th>
+                                        <th>#</th>
+                                        <th>DPI</th>
+                                        <th>User</th>
+                                        <th>Nombre</th>
+                                        <th>Apellido</th>
+                                        <th>Fecha Nacimiento</th>
+                                        <th>Telefono</th>
+                                        <th>Correo</th>
+                                        <th>Verificado</th>
+                                        <th>Activa</th>
                                     </tr>
                                 </thead>
                                 <tfoot>
                                     <tr>
-                                        <th>ID</th>
-                                        <th>Usuario</th>
-                                        <th>Direccion</th>
-                                        <th>Date</th>
-                                        <th>No. card</th>
-                                        <th>Total</th>
-                                        <th>State</th>
-                                        <th>Options</th>
+                                        <th>#</th>
+                                        <th>DPI</th>
+                                        <th>User</th>
+                                        <th>Nombre</th>
+                                        <th>Apellido</th>
+                                        <th>Fecha Nacimiento</th>
+                                        <th>Telefono</th>
+                                        <th>Correo</th>
+                                        <th>Verificado</th>
+                                        <th>Activa</th>
                                     </tr>
                                 </tfoot>
                                 <tbody>
-                                    <!-- <tr *ngFor="let order of listOrders; let i = index">
-                                        <td>{{order.id_orden}}</td>
-                                        <td><a style="color: black;">{{order.User?.nombres}} {{order.User?.apellidos}}</a></td>
-                                        <td>{{order.direccion}}</td>
-                                        <td>{{order.fecha}}</td>
-                                        <td>{{order.no_tarjeta}}</td>
-                                        <td>{{order.total}}</td>
-                                        <td>{{order.estado}}</td>
-                                        <td> -->
+                                    <tr *ngFor="let account of listAccounts; let i = index">
+                                        <td>{{i+1}}</td>
+                                        <td>{{account.id_cuenta}}</td>
+                                        <td>{{account.user}}</td>
+                                        <td>{{account.User?.nombres}}</td>
+                                        <td>{{account.User?.apellidos}}</td>
+                                        <td>{{account.User?.fecha_nacimiento}}</td>
+                                        <td>{{account.User?.telefono}}</td>
+                                        <td>{{account.User?.correo}}</td>
+                                        <td>{{account.verificado}}</td>
+                                        <td>{{account.activa}}</td>
+                                    </tr>
                                 </tbody>
                             </table>
                             <!-- <app-table-list-products></app-table-list-products> -->

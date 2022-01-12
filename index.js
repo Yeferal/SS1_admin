@@ -90,7 +90,6 @@ app.use("/api",AccountRoutes);
 app.use(express.static(__dirname+'/frontend/dist/frontend'));
 app.get('/',function(req, res){
     res.sendFile(path.join(__dirname+'/frontend/dist/frontend/index.html'));
-    console.log(__dirname,  "  asdfdfasd")
 });
 
 

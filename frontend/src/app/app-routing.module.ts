@@ -4,6 +4,7 @@ import { AddProductComponent } from './components/add-product/add-product.compon
 import { ChartsComponent } from './components/charts/charts.component';
 import { DetailsOrderComponent } from './components/details-order/details-order.component';
 import { EditProductComponent } from './components/edit-product/edit-product.component';
+import { ErrorComponent } from './components/error/error.component';
 import { ForgotPassComponent } from './components/forgot-pass/forgot-pass.component';
 import { HomeComponent } from './components/home/home.component';
 import { ListOrdersComponent } from './components/list-orders/list-orders.component';
@@ -34,6 +35,7 @@ const routes: Routes = [
   {path: 'report/bills', component: BillsComponent, canActivate: [LogoutGuard]},
   {path: 'report/users', component: UserReportComponent, canActivate: [LogoutGuard]},
   {path: 'report/orders', component: OrderReportComponent, canActivate: [LogoutGuard]},
+  {path: 'error', component: ErrorComponent, canActivate: [LogoutGuard]},
   // {path: '', component: },
   // {path: '', component: },
   // {path: '', component: },

@@ -19,4 +19,10 @@ export class AuthService {
       withCredentials:true
     });
   }
+
+  isConnect(){
+    return this.http.get<any>(GLOBAL.URLSHOP+'/connect',{
+      withCredentials:true
+    });
+  }
 }

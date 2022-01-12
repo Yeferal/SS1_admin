@@ -11,6 +11,9 @@ export class LogoutGuard implements CanActivate {
   constructor(public auth: AuthService, public router: Router) {}
 
   canActivate(): boolean {
+    
+
+
     this.auth.isAuthenticated().subscribe(
       res => {
         console.log(res);
@@ -18,6 +21,16 @@ export class LogoutGuard implements CanActivate {
           this.router.navigate(['login']);
           return false;
         }
+        this.auth.isConnect().subscribe(
+          res => {
+            console.log(res);
+          },
+          error => {
+            console.log(error);
+            this.router.navigate(['error']);
+            return true;
+          }
+        );
         return true;
       },
       err => {

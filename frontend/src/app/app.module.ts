@@ -32,6 +32,7 @@ import { SalesComponent } from './components/reports/sales/sales.component';
 import { BillsComponent } from './components/reports/bills/bills.component';
 import { UserReportComponent } from './components/reports/user-report/user-report.component';
 import { OrderReportComponent } from './components/reports/order-report/order-report.component';
+import { ErrorComponent } from './components/error/error.component';
 //END SERVICES
 
 @NgModule({
@@ -59,6 +60,7 @@ import { OrderReportComponent } from './components/reports/order-report/order-re
     BillsComponent,
     UserReportComponent,
     OrderReportComponent,
+    ErrorComponent,
   ],
   imports: [
     BrowserModule,

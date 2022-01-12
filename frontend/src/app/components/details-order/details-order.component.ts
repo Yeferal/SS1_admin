@@ -38,7 +38,7 @@ export class DetailsOrderComponent implements OnInit {
   procedOrder(){
     let data = {
       id_order: this.order.id_orden,
-      id_cuenta: this.order.id_cuenta,
+      id_cuenta: this.order.id_usuario,
       total: this.order.total
     };
 
