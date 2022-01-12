@@ -22,17 +22,8 @@ const io = new Server(server, {  })
 // require('./Controller/Socket')(io);
 
 
-/*
-const app = express();
-const { createServer } = require("http");
-const server = createServer(app);
-const io = require("socket.io")(server);
-require('./Controller/Socket')(io);
-
-*/
-
 //Db
-const sequelize = require("./Model/Db");
+const sequelize = require("./Model/db");
 const Models = require('./Model/CreateModels');
 
 const {database} = require('./key');
@@ -44,20 +35,9 @@ const {database} = require('./key');
 const passport = require('passport')
 const session = require('express-session')
 const MySQLStore = require('express-mysql-session');
-// const Account = require('./Model/Initialization/Account');
 
 //Rutas
 const AccountRoutes = require('./Routes/AccountRoutes');
-// const Logger = require('./Routes/LoggerRoutes');
-// const Post = require('./Routes/PostRoutes');
-// const Card = require('./Routes/CardsRoutes');
-// const Shop = require('./Routes/ShopRoutes');
-// const Search = require('./Routes/SearchRoutes');
-// const AuthRoutes = require('./Routes/AuthRoutes');
-// const Member = require('./Routes/MemberRoutes');
-// const Notify = require('./Routes/NotifyRoutes');
-// const Exchange = require('./Routes/ExchangeRoutes');
-// const Contact = require('./Routes/ContactRoutes');
 
 //inicializaciones
 require('./Lib/Passport');
@@ -69,9 +49,9 @@ app.use(cors({
     origin: "http://localhost:4401",
     credentials: true
 }));
-// const corsOptions = {origin: "https://comercio-electronico.herokuapp.com/api"}
+// const corsOptions = {origin: "https://ss1-admin.herokuapp.com/api"}
 // app.use(cors({
-//     origin: "https://comercio-electronico.herokuapp.com/api",
+//     origin: "https://ss1-admin.herokuapp.com/api",
 //     credentials: true
 // }));
 app.use(cors(corsOptions));
@@ -98,26 +78,19 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 
-//app.use(express.static('View'));
-
-
 
 //Agregar a app
 app.use("/api",AccountRoutes);
-// app.use("/api",Logger);
-// app.use("/api",Post);
-// app.use("/api",Card);
-// app.use("/api",Shop);
-// app.use("/api",Search);
-// app.use("/api",AuthRoutes);
-// app.use("/api",Member);
-// app.use("/api",Notify);
-// //p.use(Exchange);
-// app.use("/api",Contact);
 
-app.use(express.static(__dirname+'/frontend/dist/View'));
-app.get('/*',function(req,res){
-    res.sendFile(path.join(__dirname+'/frontend/dist/View/index.html'));
+// app.use(express.static(__dirname+'/frontend/dist/frontend'));
+// app.get('/',function(req,res){
+//     res.sendFile(path.join(__dirname+'/frontend/dist/frontend/index.html'));
+// });
+
+app.use(express.static(__dirname+'/frontend/dist/frontend'));
+app.get('/',function(req, res){
+    res.sendFile(path.join(__dirname+'/frontend/dist/frontend/index.html'));
+    console.log(__dirname,  "  asdfdfasd")
 });
 
 
