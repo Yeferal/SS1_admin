@@ -23,7 +23,7 @@ const io = new Server(server, {  })
 
 
 //Db
-const sequelize = require("./Model/db");
+const sequelize = require("./Model/Db");
 const Models = require('./Model/CreateModels');
 
 const {database} = require('./key');
