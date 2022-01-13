@@ -3,10 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Bill } from 'src/app/models/bill';
 import { ReportsService } from 'src/app/services/reports.service';
 
-// import {  } from "pdfmake/build/";
-// import {pdfMake} from "pdfmake/build/pdfmake";
-// import {pdfFonts} from "pdfmake/build/vfs_fonts";
-
+import { Cell, Columns, PdfMakeWrapper, Stack, Table, Txt } from 'pdfmake-wrapper';
 
 @Component({
   selector: 'app-bills',
@@ -51,6 +48,35 @@ export class BillsComponent implements OnInit {
       }
     );
     
+  }
+
+  generatePDF(){
+    const pdf = new PdfMakeWrapper();
+
+    pdf.header('Report Bills');
+    pdf.pageMargins([ 40, 60, 40, 60 ]);
+
+    pdf.add(
+      new Columns([ '#', 'No. Factura', 'Cuenta', 'Usuario', 'Fecha', 'Total' ]).end
+    );
+    // pdf.add(
+    //   new Stack([ 'Hello', 'world' ]).end
+    // );
+
+    // let tbody: any = [];
+    // this.listBills.forEach(Bill => {
+    //   tbody.push([ 'column 1', 'column 2']);
+    // });
+
+    pdf.add(
+      new Table([
+        [ 'column 1', 'column 2'],
+        [ 'column 1', 'column 2'],
+        [ 'column 1', 'column 2']
+    ]).widths([ '*', 100 ]).end
+    );
+
+    pdf.create().open();
   }
 
 }
