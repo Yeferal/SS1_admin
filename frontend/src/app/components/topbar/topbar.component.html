@@ -20,7 +20,8 @@
             </div>
         </div>
     </form>
-
+    <a style="padding-right: 5px;" (click)="setAutoTransaction($event)">Auto Transaction: </a>
+    <input type="checkbox" (change)="setAutoTransaction($event.target)" [checked]="auto" required>
     <!-- Topbar Navbar -->
     <ul class="navbar-nav ml-auto">
 
@@ -98,7 +99,7 @@
                 <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
             </div>
         </li>
-
+        
         <!-- Nav Item - Messages -->
         <li class="nav-item dropdown no-arrow mx-1">
             <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"

@@ -35,6 +35,9 @@ import { OrderReportComponent } from './components/reports/order-report/order-re
 import { ErrorComponent } from './components/error/error.component';
 //END SERVICES
 
+// import pdfMake from 'pdfmake/build/pdfmake';
+// import pdfFonts from 'pdfmake/build/vfs_fonts';
+
 @NgModule({
   declarations: [
     AppComponent,

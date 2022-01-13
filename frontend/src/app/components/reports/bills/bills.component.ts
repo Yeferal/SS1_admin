@@ -3,6 +3,11 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Bill } from 'src/app/models/bill';
 import { ReportsService } from 'src/app/services/reports.service';
 
+// import {  } from "pdfmake/build/";
+// import {pdfMake} from "pdfmake/build/pdfmake";
+// import {pdfFonts} from "pdfmake/build/vfs_fonts";
+
+
 @Component({
   selector: 'app-bills',
   templateUrl: './bills.component.html',
@@ -14,6 +19,7 @@ export class BillsComponent implements OnInit {
     fecha: new FormControl(null,null)
   });
   
+  // pdfMake
   listBills: Bill [] = [];
   total: any = 0.00;
 

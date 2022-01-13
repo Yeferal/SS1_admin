@@ -31,4 +31,16 @@ export class SessionService {
       withCredentials: true
     });
   }
+
+  getAuto(){
+    return this.http.get<any>(GLOBAL.URLSHOP+'/auto', {
+      withCredentials: true
+    });
+  }
+
+  setAuto(data: any){
+    return this.http.post<any>(GLOBAL.URLSHOP+'/auto', data, {
+      withCredentials: true
+    });
+  }
 }

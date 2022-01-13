@@ -10,9 +10,12 @@ import { SessionService } from 'src/app/services/user/session.service';
 })
 export class TopbarComponent implements OnInit {
 
+  auto = true;
+
   constructor(private sessionService: SessionService, private router: Router) { }
 
   ngOnInit(): void {
+    this.getAutoTransaction();
   }
 
   logout(){
@@ -28,6 +31,34 @@ export class TopbarComponent implements OnInit {
       }
     );
 
+  }
+
+  getAutoTransaction(){
+    this.sessionService.getAuto().subscribe(
+      res => {
+        this.auto = res;
+      },
+      error => {
+        this.auto = true;
+      }
+    );
+  }
+
+  setAutoTransaction(d: any){
+    console.log('Entro', d);
+    
+    let data = {
+      auto: !this.auto
+    }
+    this.sessionService.setAuto(data).subscribe(
+      res => {
+        console.log(res);
+        this.auto = !this.auto
+      },
+      error => {
+        this.auto = true;
+      }
+    );
   }
 
 }

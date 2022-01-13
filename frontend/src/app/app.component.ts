@@ -20,6 +20,7 @@ export class AppComponent {
     '../../../assets/vendor/datatables/jquery.dataTables.min.js',
     '../../../assets/vendor/datatables/dataTables.bootstrap4.min.js',
     '../../../assets/js/demo/datatables-demo.js',
+    'https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js'
   ];
 
   filesLinks = [
@@ -37,6 +38,11 @@ export class AppComponent {
       rel: 'stylesheet',
       type: '',
       href: '../../../assets/css/sb-admin-2.min.css'  
+    },
+    {
+      rel: 'stylesheet',
+      type: '',
+      href: 'https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css'  
     }
 
   ];
